@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="lab01/src"/>
+	<classpathentry kind="src" path="Game"/>
+	<classpathentry kind="lib" path=".metadata/.plugins/com.google.appengine.eclipse.core/appengine-sdk-proxy.jar"/>
+	<classpathentry kind="lib" path=".metadata/.plugins/com.google.appengine.eclipse.core/appengine-tools-api.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="output" path="lab01/bin"/>
+</classpath>
