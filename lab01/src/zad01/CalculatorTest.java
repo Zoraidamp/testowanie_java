@@ -24,29 +24,29 @@ public class CalculatorTest {
 	
 	@Test
 	public void checkDivCorrectResultInt() {
-		assertEquals(calc.div(10, 2), 5);
+		assertEquals(5, calc.div(10, 2));
 	}
 	
 	@Test
 	public void checkDivCorrectResultNotInt() {
-		assertEquals(calc.div(15, 7), 2);
+		assertEquals(2, calc.div(15, 7));
 	}
 	
 	@Test
 	public void checkGreaterFirstGreater() {
-		assertEquals(calc.greater(15, 7), true);
+		assertEquals(true, calc.greater(15, 7));
 		
 	}
 	
 	@Test
 	public void checkGreaterSecondGreater() {
-		assertEquals(calc.greater(4, 7), false);
+		assertEquals(false, calc.greater(4, 7));
 		
 	}
 	
 	@Test
 	public void checkGreaterTwoEqual() {
-		assertEquals(calc.greater(4, 4), false);
+		assertEquals(false, calc.greater(4, 4));
 		
 	}
 	@Test(expected = ArithmeticException.class)  
