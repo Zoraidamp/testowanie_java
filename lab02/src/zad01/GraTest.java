@@ -22,6 +22,6 @@ Gra gry = new Gra();
 	
 	@Test
 	public void nieksztaltekTest(){
-		assertEquals(null, gry.nieksztaltek(53234353));
+		assertEquals(null, gry.nieksztaltek(1123456));
 	}
 }

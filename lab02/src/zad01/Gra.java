@@ -51,7 +51,6 @@ public class Gra implements Psikus{
 		    list.add(pos);
 		    pos++;
 		}
-		System.out.println("i"+list);
 		while ((pos = data.indexOf("6", pos)) != -1) {
 		    list.add(pos);
 		    pos++;
@@ -60,22 +59,20 @@ public class Gra implements Psikus{
 		    list.add(pos);
 		    pos++;
 		}
+		System.out.println("i"+list);
 		if (list.size() > 0){
 			Random generator = new Random();
 			int nr = generator.nextInt(list.size());
 			int nrList = list.get(nr);
-			System.out.println("nr: "+list.get(nr));
-			System.out.println("size:"+list.size());
+			System.out.println("nr: "+nrList);
+			System.out.println("size:"+nrList);
 			StringBuilder build = new StringBuilder(data);
-			if ( data.charAt(nrList)==3 ) pom = '8';
-			if (data.charAt(nrList)==6) pom = '9';
-			if (data.charAt(nrList)==7) pom = '1';
-			//build.setCharAt(list.get(nr), pom);
+			if ( build.charAt(nrList)=='3') build.setCharAt(nrList, '8');
+			if (build.charAt(nrList)=='6') build.setCharAt(nrList, '9');
+			if (build.charAt(nrList)=='7') build.setCharAt(nrList, '1');
 			System.out.println( "build:"+ build.toString());
-			//System.out.println("*"+data+"*");
-			liczba = Integer.parseInt( (build.toString())  );
+			liczba = Integer.parseInt( (build.toString()) );
 		}
-		//System.out.println( "liczba:"+ liczba);
 		return liczba;
 	}
 

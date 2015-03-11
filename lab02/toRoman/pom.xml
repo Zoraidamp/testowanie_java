@@ -2,12 +2,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.example.zad01</groupId>
-  <artifactId>lab03</artifactId>
+  <groupId>com.example</groupId>
+  <artifactId>toRoman</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>lab03</name>
+  <name>toRoman</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -22,4 +22,13 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  <dependencyManagement>
+  	<dependencies>
+  		<dependency>
+  			<groupId>junit</groupId>
+  			<artifactId>junit</artifactId>
+  			<version>3.8.1</version>
+  		</dependency>
+  	</dependencies>
+  </dependencyManagement>
 </project>
