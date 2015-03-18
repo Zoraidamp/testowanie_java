@@ -1,4 +1,5 @@
-package zad01;
+package zad01.main;
+
 
 public interface Psikus {
 	Integer cyfrokrad(Integer liczba);

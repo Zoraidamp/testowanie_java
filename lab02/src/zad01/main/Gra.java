@@ -1,4 +1,4 @@
-package zad01;
+package zad01.main;
 
 import java.util.ArrayList;
 import java.util.Random;

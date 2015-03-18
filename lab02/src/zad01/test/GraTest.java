@@ -1,14 +1,16 @@
-package zad01;
+package zad01.test;
 
-import static org.junit.Assert.*;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
 
-import org.junit.Assert;
-import org.junit.Test;
+@RunWith(Suite.class)
+@Suite.SuiteClasses({
+	CorrectInputTest.class,
+	BadInputTest.class
+	})
 
-import static org.hamcrest.CoreMatchers.*;
-
-public class GraTest {
-Gra gry = new Gra();
+public class GraTest {}
+/*Gra gry = new Gra();
 	
 	@Test
 	public void testCyfrokrad() {
@@ -24,4 +26,4 @@ Gra gry = new Gra();
 	public void nieksztaltekTest(){
 		assertEquals(null, gry.nieksztaltek(1123456));
 	}
-}
+	*/
