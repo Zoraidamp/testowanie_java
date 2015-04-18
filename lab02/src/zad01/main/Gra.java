@@ -8,7 +8,7 @@ public class Gra implements Psikus{
 	@Override
 	public Integer cyfrokrad(Integer liczba) {
 		int solution = 0;
-		if (liczba<10) return null;
+		if (liczba<10) return 0;
 	    String stringNumber = "" + liczba;
 		Random generator = new Random();
 		int nr = generator.nextInt(stringNumber.length());
