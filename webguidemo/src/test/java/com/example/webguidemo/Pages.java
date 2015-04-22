@@ -5,6 +5,7 @@ import org.jbehave.web.selenium.WebDriverProvider;
 import com.example.webguidemo.pages.Sport;
 import com.example.webguidemo.pages.Home;
 import com.example.webguidemo.pages.Now;
+import com.example.webguidemo.pages.Search;
 
 public class Pages {
 
@@ -14,6 +15,7 @@ public class Pages {
 	private Home home;
 	private Sport sport;
 	private Now now;
+	private Search search;
 	// ...
 
 	public Pages(WebDriverProvider driverProvider) {
@@ -41,4 +43,11 @@ public class Pages {
 		}
 		return now;
 	}
+	
+	public Search search(){
+		if (search == null) {
+			search = new Search(driverProvider);
+		}
+		return search;
+	}	
 }

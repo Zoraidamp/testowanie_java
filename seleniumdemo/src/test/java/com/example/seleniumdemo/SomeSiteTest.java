@@ -53,22 +53,14 @@ public class SomeSiteTest {
 	    
 	    Random r = new Random();
 	    int rand = r.nextInt(998958);
-	    driver.findElement(By.xpath("/html/body/div/div/div/div[2]/form/div[2]/input")).sendKeys("User"+rand);
-	    driver.findElement(By.xpath("/html/body/div/div/div/div[2]/form/div[3]/input")).sendKeys("P@ssword");
-	    driver.findElement(By.xpath("/html/body/div/div/div/div[2]/form/div[4]/input")).sendKeys("P@ssword");
-	    driver.findElement(By.xpath("/html/body/div/div/div/div[2]/form/div[5]/input")).sendKeys("user"+rand+"@mail.com");
+	    driver.findElement(By.name("user[login]")).sendKeys("User"+rand);
+	    driver.findElement(By.name("user[password]")).sendKeys("P@ssword");
+	    driver.findElement(By.name("user[password_confirmation]")).sendKeys("P@ssword");
+	    driver.findElement(By.name("user[email]")).sendKeys("user"+rand+"@mail.com");
 	    driver.findElement(By.xpath("/html/body/div/div/div/div[2]/form/input")).click();
-	    
 	    //WebDriverWait wait = new WebDriverWait(driver, 3);
 	    //WebElement element =
 	    //wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Zarejestruj się")));
-	    
-		try {
-			FileUtils.copyFile(screenshot, new File("registation.png"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		assertTrue(true);
 	}
 	
 
@@ -76,8 +68,8 @@ public class SomeSiteTest {
 	public void loginPage() throws InterruptedException{
 		driver.get("http://0.0.0.0:3000/");
 			    
-	    driver.findElement(By.xpath("/html/body/nav/div/div[2]/form/div[2]/input")).sendKeys("pom");
-	    driver.findElement(By.xpath("/html/body/nav/div/div[2]/form/div[3]/input")).sendKeys("P@ssword");
+	    driver.findElement(By.id("session_login")).sendKeys("pom");
+	    driver.findElement(By.id("session_password")).sendKeys("P@ssword");
 	    driver.findElement(By.xpath("/html/body/nav/div/div[2]/form/input")).click();
 		File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 	    assertNotNull(screenshot);
@@ -92,37 +84,30 @@ public class SomeSiteTest {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		assertTrue(true);
 	}
 	
 	@Test
 	public void sendMailPage() throws InterruptedException{
 		driver.get("http://0.0.0.0:3000/");
-			    
-	    driver.findElement(By.xpath("/html/body/nav/div/div[2]/form/div[2]/input")).sendKeys("pom");
-	    driver.findElement(By.xpath("/html/body/nav/div/div[2]/form/div[3]/input")).sendKeys("P@ssword");
+	    
+	    driver.findElement(By.id("session_login")).sendKeys("pom");
+	    driver.findElement(By.id("session_password")).sendKeys("P@ssword");
 	    driver.findElement(By.xpath("/html/body/nav/div/div[2]/form/input")).click();
+	    driver.findElement(By.xpath("/html/body/nav/div/div[2]/ul[2]/li[3]/a")).click();
 		File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 	    assertNotNull(screenshot);
-	    driver.findElement(By.xpath("/html/body/nav/div/div[2]/ul[2]/li[3]/a"));
-	    driver.findElement(By.xpath("/html/body/section[1]/div/div/div/div[2]/p/a"));
+	   
+	    driver.findElement(By.linkText("Wyślij wiadomość")).click();
+	    Random r = new Random();
+	    int rand = r.nextInt(998958);
+	    driver.findElement(By.name("message[title]")).sendKeys("Title"+rand);
+	    driver.findElement(By.name("message[body]")).sendKeys("Sth here it is");
+	    driver.findElement(By.xpath("/html/body/section[1]/div/div/div/form/div[5]/input")).click();
+	    driver.findElement(By.xpath("/html/body/section[1]/div/div/div/a")).click();
+	    driver.findElement(By.linkText("Wysłane wiadomości")).click();
+	    driver.findElement(By.linkText("Title"+rand));
+	    driver.findElement(By.xpath("/html/body/nav/div/div[2]/ul[2]/li[5]/a")).click();
 	    
-	    WebDriverWait wait = new WebDriverWait(driver, 10);
-	    WebElement element =
-	    wait.until(ExpectedConditions.elementToBeClickable(By.id("manage")));
-	    //driver.findElement(By.linkText("Wyślij wiadomość")).click();
-	    
-	    //driver.findElement(By.id("message_title"));
-	    //WebDriverWait wait = new WebDriverWait(driver, 3);
-	    //WebElement element =
-	    //wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Zarejestruj się")));
-	    
-		try {
-			FileUtils.copyFile(screenshot, new File("login.png"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		assertTrue(true);
 	}
 
 	@AfterClass

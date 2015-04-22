@@ -29,6 +29,12 @@ public class TelemanSteps {
     public void userClicksOnNowLink(){        
         pages.home().findElement(By.linkText("TERAZ W TV")).click();
     }
+    
+    @When("user searches xxx")
+    public void userSearchSth(){        
+        pages.home().findElement(By.xpath("/html/body/div[1]/div/form/input[1]")).sendKeys("xxx");
+        pages.home().findElement(By.xpath("/html/body/div[1]/div/form/input[2]")).click();
+    }
  
     @Then("Sport page is shown")
     public void sportPageIsShown(){
@@ -42,7 +48,7 @@ public class TelemanSteps {
     
     @Then("Search page is shown")
     public void searchPageIsShown(){
-       assertEquals("Teraz i za Chwilę w Programie TV - Aktualny Program TV - Program telewizyjny Teleman.pl", pages.now().getTitle());
+       assertEquals("Wyniki wyszukiwania \"xxx\" - Program telewizyjny Teleman.pl", pages.search().getTitle());
     }
 
 }
