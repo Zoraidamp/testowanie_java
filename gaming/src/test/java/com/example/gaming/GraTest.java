@@ -1,4 +1,4 @@
-package zad01.test;
+package com.example.gaming;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;

@@ -1,11 +1,10 @@
-package zad01.main;
+package com.example.gaming;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Gra implements Psikus{
 
-	@Override
 	public Integer cyfrokrad(Integer liczba) {
 		int solution = 0;
 		if (liczba<10) return null;
@@ -19,7 +18,6 @@ public class Gra implements Psikus{
 		return solution;
 	}
 
-	@Override
 	public Integer hultajchochla(Integer liczba) throws NieudanyPsikusException {
 		int solution = 0, rand1=0, rand2=0;
 		char pom;
@@ -40,7 +38,6 @@ public class Gra implements Psikus{
 		return solution;
 	}
 
-	@Override
 	public Integer nieksztaltek(Integer liczba) {
 		String data = liczba.toString();
 		char pom = '2';
