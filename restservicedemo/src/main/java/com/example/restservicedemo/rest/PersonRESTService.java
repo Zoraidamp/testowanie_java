@@ -9,10 +9,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import com.example.restservicedemo.domain.Car;
 import com.example.restservicedemo.domain.Person;
-import com.example.restservicedemo.service.CarManager;
-import com.example.restservicedemo.service.CarToPersonManager;
 import com.example.restservicedemo.service.PersonManager;
 
 @Path("persons")
@@ -28,14 +25,15 @@ public class PersonRESTService {
 		return p;
 	}
 	
+
 	@POST
 	@Path("/")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response addPerson(Person person){
-		System.out.println("Person" + person.getFirstName());
-		pm.addPerson(person);
-		return Response.status(201).entity(person).build(); 
-	}
+	System.out.println("Person" + person.getFirstName());
+	pm.addPerson(person);
+	return Response.status(201).entity(person).build();
+}
 	
 	@GET
 	@Path("/test")

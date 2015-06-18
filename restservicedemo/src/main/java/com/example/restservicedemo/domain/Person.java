@@ -12,8 +12,6 @@ public class Person {
 	private String firstName;
 	private int yob;
 	
-	private List<Car> cars;
-	
 	public Person() {
 	}
 
@@ -50,11 +48,4 @@ public class Person {
 		this.yob = yob;
 	}
 
-	public List<Car> getCars() {
-		return cars;
-	}
-
-	public void setCars(List<Car> cars) {
-		this.cars = cars;
-	}
 }

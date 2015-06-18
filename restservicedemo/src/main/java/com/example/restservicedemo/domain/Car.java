@@ -11,20 +11,22 @@ public class Car {
 	private String make;
 	private String model;	
 	private int yop;
-	private List<Person> persons;
+	private long owner;
 	
-	public Car(String make, String model, int yop) {
+	public Car(String make, String model, int yop, long owner) {
 		this.make = make;
 		this.model = model;
 		this.yop = yop;
+		this.owner = owner;
 	}
 	
-	public Car(long id, String make, String model, int yop) {
+	public Car(long id, String make, String model, int yop, long owner) {
 		super();
 		this.id = id;
 		this.make = make;
 		this.model = model;
 		this.yop = yop;
+		this.owner = owner;
 	}
 	
 	public Car() {
@@ -55,12 +57,10 @@ public class Car {
 		this.yop = yop;
 	}
 
-	public List<Person> getPersons() {
-		return persons;
+	public long getOwner() {
+		return owner;
 	}
-
-	public void setPersons(List<Person> persons) {
-		this.persons = persons;
+	public void setOwner(long owner) {
+		this.owner = owner;
 	}
-	
 }

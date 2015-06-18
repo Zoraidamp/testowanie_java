@@ -8,10 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import com.example.restservicedemo.domain.Car;
-import com.example.restservicedemo.domain.CarhasPerson;
 import com.example.restservicedemo.domain.Person;
 
 public class PersonManager {
@@ -64,7 +62,7 @@ public class PersonManager {
 		return connection;
 	}
 
-	void clearPersons() {
+	public void clearPersons() {
 		try {
 			deleteAllPersonsStmt.executeUpdate();
 		} catch (SQLException e) {
@@ -78,7 +76,7 @@ public class PersonManager {
 			addPersonStmt.setLong(1, person.getId());
 			addPersonStmt.setString(2, person.getFirstName());
 			addPersonStmt.setInt(3, person.getYob());
-			
+
 			count = addPersonStmt.executeUpdate();
 
 		} catch (SQLException e) {
@@ -109,16 +107,14 @@ public class PersonManager {
 
 	public Person getPerson(Long id) {
 		Person p = new Person();
-		CarToPersonManager cpm = new CarToPersonManager();
 		try {
 			getPersonByIdStmt.setLong(1, id);
 			ResultSet rs = getPersonByIdStmt.executeQuery();
 
 			while (rs.next()) {
-				p.setId(rs.getLong("id"));
+				p.setId(rs.getInt("id"));
 				p.setFirstName(rs.getString("name"));
 				p.setYob(rs.getInt("yob"));
-				p.setCars(cpm.getAllPersonCars(rs.getLong("id")));
 				break;
 			}
 
@@ -129,25 +125,5 @@ public class PersonManager {
 		return p;
 	}
 	
-	public Person getPersonWithCars(Long id) {
-		Person p = new Person();
-		try {
-			getPersonByIdStmt.setLong(1, id);
-			ResultSet rs = getPersonByIdStmt.executeQuery();
-			CarToPersonManager ctpm = new CarToPersonManager();
-			List<Car> cars = ctpm.getAllPersonCars(id);
-			while (rs.next()) {
-				p.setId(rs.getInt("id"));
-				p.setFirstName(rs.getString("name"));
-				p.setYob(rs.getInt("yob"));
-				p.setCars(cars);
-				break;
-			}
 
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		return p;
-	}
 }
